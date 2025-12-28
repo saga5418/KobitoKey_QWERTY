@@ -8,12 +8,6 @@
     combos {
         compatible = "zmk,combos";
 
-        combo_eisu {
-            timeout-ms = <50>;
-            key-positions = <12 13>;
-            bindings = <&kp LANG2>;
-        };
-
         combo_kana {
             timeout-ms = <50>;
             key-positions = <16 17>;
@@ -38,20 +32,20 @@
 
         default_layer {
             bindings = <
-&kp LEFT_WIN  &kp W         &kp E    &kp R      &kp T      &kp Y  &kp U        &kp I      &kp O      &kp P
-&kp A         &kp S         &kp D    &kp F      &kp G      &kp H  &kp J        &kp K      &kp L      &kp SEMI
-&kp Z         &kp X         &kp C    &kp V      &kp B      &kp N  &kp M        &kp COMMA  &kp DOT    &kp APOS
-&kp DEL       &kp LEFT_ALT  &lt 1 Q  &kp LCTRL  &kp SPACE  &kp A  &lt 1 ENTER  &kp RSHFT  &kp RSHFT  &mt LALT SLASH
+&mt Q LEFT_GUI  &kp W         &kp E             &kp R                   &kp T        &kp Y        &kp U                     &kp I                           &kp O            &kp P
+&kp A           &kp S         &kp D             &kp F                   &kp G        &kp H        &kp J                     &mt L K                         &mkp LCLK        &mkp RCLK
+&kp Z           &kp X         &kp C             &kp V                   &kp B        &kp N        &kp M                     &mt RIGHT_BRACKET LEFT_BRACKET  &mt CARET MINUS  &mt RC(V) RC(C)
+&kp DEL         &kp LEFT_ALT  &mt PERIOD COMMA  &mt LEFT_CONTROL LC(Z)  &lt 1 SPACE  &lt 2 ENTER  &mt RIGHT_SHIFT RA(LEFT)  &mt TAB RA(RIGHT_ARROW)         &kp AT_SIGN      &mt LANGUAGE_2 LANGUAGE_1
             >;
         };
 
         layer1 {
             label = "NUMBER";
             bindings = <
-&kp N0     &kp N1  &kp N2  &kp N3     &trans  &kp MINUS  &trans     &kp UP    &trans     &trans
-&kp EQUAL  &kp N4  &kp N5  &kp N6     &trans  &kp PLUS   &kp LEFT   &kp DOWN  &kp RIGHT  &trans
-&trans     &kp N7  &kp N8  &kp N9     &trans  &kp ASTRK  &kp SLASH  &kp LBKT  &kp RBKT   &trans
-&trans     &trans  &trans  &kp LSHFT  &trans  &trans     &trans     &trans    &trans     &trans
+&mt QUESTION NUMBER_0  &kp N1         &kp N2        &kp N3        &kp NUMBER_4     &kp MINUS        &trans     &kp UP    &trans     &trans
+&kp NUMBER_5           &kp NUMBER_6   &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9     &kp PLUS         &kp LEFT   &kp DOWN  &kp RIGHT  &trans
+&mt Y H                &mt U J        &mt I K       &mt O L       &mt P SEMICOLON  &kp ASTRK        &kp SLASH  &kp LBKT  &kp RBKT   &trans
+&mt N B                &mt AT_SIGN M  &trans        &trans        &trans           &kp RIGHT_SHIFT  &trans     &trans    &trans     &trans
             >;
         };
 
@@ -61,7 +55,7 @@
 &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &kp F1   &kp F2   &kp F3  &kp F4  &kp F5
 &trans        &trans        &trans        &trans        &bt BT_CLR      &kp F6   &kp F7   &kp F8  &kp F9  &kp F10
 &trans        &trans        &trans        &trans        &bt BT_CLR_ALL  &kp F11  &kp F12  &trans  &trans  &trans
-&trans        &trans        &trans        &trans        &trans          &kp DEL  &trans   &trans  &trans  &trans
+&trans        &trans        &trans        &trans        &kp LEFT_SHIFT  &trans   &trans   &trans  &trans  &trans
             >;
         };
 
