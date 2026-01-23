@@ -44,7 +44,7 @@
             bindings = <
 &mt QUESTION NUMBER_0  &kp N1         &kp N2        &kp N3        &kp NUMBER_4     &kp MINUS        &trans     &kp UP    &trans     &trans
 &kp NUMBER_5           &kp NUMBER_6   &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9     &kp PLUS         &kp LEFT   &kp DOWN  &kp RIGHT  &trans
-&mt Y H                &mt U J        &mt I K       &mt O L       &mt P SEMICOLON  &kp ASTRK        &kp SLASH  &kp LBKT  &kp RBKT   &trans
+&mt A H                &mt U J        &mt I K       &mt O L       &mt P SEMICOLON  &kp ASTRK        &kp SLASH  &kp LBKT  &kp RBKT   &trans
 &mt N B                &mt AT_SIGN M  &trans        &trans        &trans           &kp RIGHT_SHIFT  &trans     &trans    &trans     &trans
             >;
         };
