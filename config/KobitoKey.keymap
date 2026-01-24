@@ -46,7 +46,7 @@
         layer1 {
             label = "NUMBER";
             bindings = <
-&mt LS(LC(N)) LA(LEFT_BRACKET)  &mt LC(G) LS(LC(N))      &mt LS(MINUS) MINUS    &mt LS(LCTRL) LCTRL          &mt LC(LA(G)) LS(H)     &kp MINUS        &trans             &kp UP         &trans     &trans
+&mt LS(LC(N)) LA(LEFT_BRACKET)  &mt LC(G) LS(LC(N))      &mt LS(MINUS) MINUS    &mt LS(LCTRL) LCTRL          &mt LC(LA(G)) LS(H)     &kp MINUS        &mkp MCLK          &kp UP         &trans     &trans
 &mt M LC(Z)                     &mt H LC(Y)              &mt LC(T) LC(MINUS)    &mt LC(LS(T)) LC(SEMICOLON)  &mt SLASH LC(NUMBER_0)  &kp PLUS         &kp LEFT           &kp DOWN       &kp RIGHT  &trans
 &mt NUMBER_5 NUMBER_0           &mt NUMBER_6 NUMBER_1    &mt NUMBER_7 NUMBER_2  &mt NUMBER_8 NUMBER_3        &mt NUMBER_9 NUMBER_4   &kp ASTRK        &kp SLASH          &kp LBKT       &kp RBKT   &trans
 &mt EXCLAMATION QUESTION        &mt LC(LA(LS(K))) LC(K)  &trans                 &trans                       &trans                  &kp RIGHT_SHIFT  &kp RIGHT_CONTROL  &kp RIGHT_ALT  &trans     &trans
