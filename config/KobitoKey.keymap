@@ -2,7 +2,7 @@
 
 // 基本記号
 #define JP_DQUOTE       &kp LS(NUMBER_2)        // "
-#define JP_AMPERSAND    &kp LS(NUMBER_7)        // &
+#define JP_AMPERSAND    &kp LS(SEVEN)           // &
 #define JP_QUOTE        &kp SINGLE_QUOTE        // '
 #define JP_EQUAL        &kp EQUAL               // =
 #define JP_CARET        &kp EQUAL               // ^（JIS解釈）
@@ -30,7 +30,6 @@
 #define JP_KANA         &kp LANG1               // かな
 #define JP_EISU         &kp LANG2               // 英数
 #define JP_HANZEN       &kp GRAVE               // 半角/全角
-
 
 #include <input/processors.dtsi>
 #include <behaviors.dtsi>
@@ -70,49 +69,61 @@
 
         default_layer {
             bindings = <
-&kp Q          &kp W         &kp E               &kp R                   &kp T        &kp Y        &kp U           &kp I                    &kp O              &kp P
-&kp A          &kp S         &kp D               &kp F                   &kp G        &kp H        &kp J           &kp K                    &mkp LCLK          &mkp RCLK
-&kp Z          &kp X         &kp C               &kp V                   &kp B        &kp N        &kp M           &kp L                    &mt AT_SIGN MINUS  &mt RIGHT_BRACKET LEFT_BRACKET
-&kp BACKSPACE  &kp LEFT_ALT  &mt LEFT_SHIFT TAB  &mt LEFT_CONTROL LC(Z)  &lt 1 SPACE  &lt 2 ENTER  &lt 3 RA(LEFT)  &mt TAB RA(RIGHT_ARROW)  &kp RIGHT_WIN      &mt PERIOD COMMA
+                &kp Q        &kp W        &kp E        &kp R        &kp T
+                &kp Y        &kp U        &kp I        &kp O        &kp P
+                &kp A        &kp S        &kp D        &kp F        &kp G
+                &kp H        &kp J        &kp K        &kp L        JP_COLON
+                &kp Z        &kp X        &kp C        &kp V        &kp B
+                &kp N        &kp M        JP_AT       JP_PLUS     JP_LBRACKET
+                &kp BACKSPACE &kp LEFT_ALT &mt LEFT_SHIFT TAB &mt LEFT_CONTROL LC(Z) &lt 1 SPACE
+                &lt 2 ENTER   &lt 3 RA(LEFT) &mt TAB RA(RIGHT_ARROW) &kp RIGHT_WIN &mt PERIOD COMMA
             >;
         };
 
         layer1 {
             label = "NUMBER";
             bindings = <
-&mt LS(LC(N)) LS(O)       &mt LC(G) LS(I)          &mt LS(MINUS) MINUS    &mt LS(U) LS(Y)              &mt LC(LA(G)) LS(H)     &kp MINUS              &mkp MCLK                &kp UP         &trans     &trans
-&mt M LC(Z)               &mt H LC(Y)              &mt LC(T) LC(MINUS)    &mt LC(LS(T)) LC(SEMICOLON)  &mt SLASH LC(NUMBER_0)  &kp PLUS               &kp LEFT                 &kp DOWN       &kp RIGHT  &trans
-&mt NUMBER_5 NUMBER_0     &mt NUMBER_6 NUMBER_1    &mt NUMBER_7 NUMBER_2  &mt NUMBER_8 NUMBER_3        &mt NUMBER_9 NUMBER_4   &kp ASTRK              &kp SLASH                &kp LBKT       &kp RBKT   &trans
-&mt EXCLAMATION QUESTION  &mt LC(LA(LS(K))) LC(K)  &trans                 &trans                       &trans                  &mt RIGHT_SHIFT ENTER  &mt RIGHT_CONTROL SPACE  &kp RIGHT_ALT  &trans     &trans
+                &mt LS(LC(N)) LS(O)       &mt LC(G) LS(I)          &mt LS(MINUS) MINUS    &mt LS(U) LS(Y)              &mt LC(LA(G)) LS(H)
+                &kp MINUS                  &mkp MCLK                &kp UP                 &trans                       &trans
+                &mt M LC(Z)                &mt H LC(Y)              &mt LC(T) LC(MINUS)    &mt LC(LS(T)) LC(SEMICOLON)  &mt SLASH LC(NUMBER_0)
+                &kp PLUS                   &kp LEFT                 &kp DOWN                &kp RIGHT                    &trans
+                &mt NUMBER_5 NUMBER_0      &mt NUMBER_6 NUMBER_1    &mt NUMBER_7 NUMBER_2  &mt NUMBER_8 NUMBER_3        &mt NUMBER_9 NUMBER_4
+                &JP_ASTERISK               &kp SLASH               &JP_LBRACKET            &JP_RBRACKET                 &trans
+                &mt EXCLAMATION QUESTION   &mt LC(LA(LS(K))) LC(K) &trans                 &trans                        &trans
+                &mt RIGHT_SHIFT ENTER      &mt RIGHT_CONTROL SPACE &kp RIGHT_ALT          &trans                        &trans
             >;
         };
 
         layer2 {
             bindings = <
-&kp AT_SIGN    &kp CARET         &kp SEMICOLON     &kp COLON               &kp SLASH             &kp BACKSLASH  &kp SINGLE_QUOTE      &kp DOUBLE_QUOTES      &kp PERCENT     &kp COMMA
-&kp LESS_THAN  &kp GREATER_THAN  &kp LEFT_BRACKET  &kp RIGHT_BRACKET       &kp UNDER             &kp DOT        &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp LEFT_BRACE  &kp RIGHT_BRACE
-&kp HASH       &kp EXCLAMATION   &kp QUESTION      &kp TILDE               &kp PIPE              &kp ASTRK      &kp PLUS              &kp MINUS              &kp EQUAL       &mt INT_YEN DOLLAR
-&kp BACKSPACE  &trans            &kp LEFT_ALT      &mt LEFT_CONTROL SPACE  &mt LEFT_SHIFT ENTER  &trans         &trans                &trans                 &trans          &kp AMPERSAND
+                JP_AT       JP_CARET       JP_SEMICOLON   JP_COLON
+                JP_SLASH    JP_BACKSLASH   JP_QUOTE       JP_DQUOTE
+                JP_PERCENT  JP_COMMA       JP_LESS_THAN   JP_GREATER_THAN
+                JP_LBRACKET JP_RBRACKET    JP_UNDERSCORE  JP_ASTERISK
+                JP_PLUS     JP_MINUS       JP_EQUAL       &mt INT_YEN DOLLAR
+                &kp BACKSPACE &trans       &kp LEFT_ALT   &mt LEFT_CONTROL SPACE
+                &mt LEFT_SHIFT ENTER &trans &trans      &trans         &trans
+                JP_AMPERSAND
             >;
         };
 
         layer3 {
             label = "FUNCTION";
             bindings = <
-&bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3            &bt BT_SEL 4          &kp F1   &kp F2   &kp F3  &kp F4  &kp F5
-&trans        &trans        &trans        &trans                  &bt BT_CLR            &kp F6   &kp F7   &kp F8  &kp F9  &kp F10
-&trans        &trans        &trans        &trans                  &bt BT_CLR_ALL        &kp F11  &kp F12  &trans  &trans  &trans
-&trans        &trans        &kp LEFT_ALT  &mt LEFT_CONTROL SPACE  &mt LEFT_SHIFT ENTER  &trans   &trans   &trans  &trans  &trans
+                &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3            &bt BT_SEL 4          &kp F1   &kp F2   &kp F3  &kp F4  &kp F5
+                &trans        &trans        &trans        &trans                  &bt BT_CLR            &kp F6   &kp F7   &kp F8  &kp F9  &kp F10
+                &trans        &trans        &trans        &trans                  &bt BT_CLR_ALL        &kp F11  &kp F12  &trans  &trans  &trans
+                &trans        &trans        &kp LEFT_ALT  &mt LEFT_CONTROL SPACE  &mt LEFT_SHIFT ENTER  &trans   &trans   &trans  &trans  &trans
             >;
         };
 
         layer4 {
             label = "MOUSE";
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+                &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+                &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+                &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+                &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
             >;
         };
     };
