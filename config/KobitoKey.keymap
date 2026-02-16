@@ -1,41 +1,34 @@
-// ===== JIS環境用 補正マクロ =====
-
-// 基本記号
-#define JP_DQUOTE       LS(NUMBER_2)
-#define JP_AMPERSAND    LS(SEVEN)
-#define JP_QUOTE        SINGLE_QUOTE
-#define JP_EQUAL        EQUAL
-#define JP_CARET        EQUAL
-#define JP_YEN          BACKSLASH
-
-// 上段記号
-#define JP_PLUS         LS(SEMICOLON)
-#define JP_TILDE        LS(GRAVE)
-#define JP_PIPE         LS(BACKSLASH)
-#define JP_AT           SINGLE_QUOTE
-#define JP_COLON        LS(SEMICOLON)
-#define JP_ASTERISK     LS(EIGHT)
-#define JP_BACKQUOTE    GRAVE
-#define JP_UNDERSCORE   LS(MINUS)
-
-// 括弧系
-#define JP_LBRACKET     LEFT_BRACKET
-#define JP_RBRACKET     RIGHT_BRACKET
-#define JP_LPAREN       LS(NINE)
-#define JP_RPAREN       LS(ZERO)
-#define JP_LBRACE       LS(LEFT_BRACKET)
-#define JP_RBRACE       LS(RIGHT_BRACKET)
-
-// 日本語特有キー
-#define JP_KANA         LANG1
-#define JP_EISU         LANG2
-#define JP_HANZEN       GRAVE
-
 #include <input/processors.dtsi>
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/pointing.h>
+
+/* ===== JIS Logical Mapping ===== */
+
+#define JP_DQUOTE        LS(NUMBER_2)
+#define JP_AMPERSAND     LS(NUMBER_6)
+#define JP_QUOTE         LS(NUMBER_7)
+#define JP_EQUAL         MINUS
+#define JP_CARET         EQUAL
+#define JP_YEN           INT_YEN
+#define JP_PLUS          LS(SEMICOLON)
+#define JP_TILDE         LS(EQUAL)
+#define JP_PIPE          LS(INT_YEN)
+#define JP_AT            LEFT_BRACKET
+#define JP_COLON         LS(SEMICOLON)
+#define JP_ASTERISK      LS(QUOTE)
+#define JP_BACKQUOTE     LS(AT_SIGN)
+#define JP_UNDERSCORE    LS(MINUS)
+#define JP_LBRACKET      RIGHT_BRACKET
+#define JP_RBRACKET      BACKSLASH
+#define JP_LPAREN        LS(NUMBER_8)
+#define JP_RPAREN        LS(NUMBER_9)
+#define JP_LBRACE        LS(RIGHT_BRACKET)
+#define JP_RBRACE        LS(BACKSLASH)
+#define JP_KANA          LANGUAGE_1
+#define JP_EISU          LANGUAGE_2
+#define JP_HANZEN        GRAVE
 
 / {
     combos {
@@ -50,11 +43,11 @@
         combo_tab {
             timeout-ms = <50>;
             key-positions = <17 16>;
-            bindings = <&kp LANGUAGE_2>;
+            bindings = <&kp JP_EISU>;
         };
 
         key2 {
-            bindings = <&kp LANGUAGE_1>;
+            bindings = <&kp JP_KANA>;
             key-positions = <13 12>;
         };
 
@@ -69,61 +62,49 @@
 
         default_layer {
             bindings = <
-                &kp Q        &kp W        &kp E        &kp R        &kp T
-                &kp Y        &kp U        &kp I        &kp O        &kp P
-                &kp A        &kp S        &kp D        &kp F        &kp G
-                &kp H        &kp J        &kp K        &kp L        JP_COLON
-                &kp Z        &kp X        &kp C        &kp V        &kp B
-                &kp N        &kp M        JP_AT       JP_PLUS     JP_LBRACKET
-                &kp BACKSPACE &kp LEFT_ALT &mt LEFT_SHIFT TAB &mt LEFT_CONTROL LC(Z) &lt 1 SPACE
-                &lt 2 ENTER   &lt 3 RA(LEFT) &mt TAB RA(RIGHT_ARROW) &kp RIGHT_WIN &mt PERIOD COMMA
+&kp Q  &kp W  &kp E  &kp R  &kp T  &kp Y  &kp U  &kp I  &kp O  &kp P
+&kp A  &kp S  &kp D  &kp F  &kp G  &kp H  &kp J  &kp K  &mkp LCLK  &mkp RCLK
+&kp Z  &kp X  &kp C  &kp V  &kp B  &kp N  &kp M  &kp L  &mt JP_AT MINUS  &mt JP_RBRACKET JP_LBRACKET
+&kp BACKSPACE  &kp LEFT_ALT  &mt LEFT_SHIFT TAB  &mt LEFT_CONTROL LC(Z)  &lt 1 SPACE  &lt 2 ENTER  &lt 3 RA(LEFT)  &mt TAB RA(RIGHT_ARROW)  &kp RIGHT_WIN  &mt PERIOD COMMA
             >;
         };
 
         layer1 {
             label = "NUMBER";
             bindings = <
-                &mt LS(LC(N)) LS(O)       &mt LC(G) LS(I)          &mt LS(MINUS) MINUS    &mt LS(U) LS(Y)              &mt LC(LA(G)) LS(H)
-                &kp MINUS                  &mkp MCLK                &kp UP                 &trans                       &trans
-                &mt M LC(Z)                &mt H LC(Y)              &mt LC(T) LC(MINUS)    &mt LC(LS(T)) LC(SEMICOLON)  &mt SLASH LC(NUMBER_0)
-                &kp PLUS                   &kp LEFT                 &kp DOWN                &kp RIGHT                    &trans
-                &mt NUMBER_5 NUMBER_0      &mt NUMBER_6 NUMBER_1    &mt NUMBER_7 NUMBER_2  &mt NUMBER_8 NUMBER_3        &mt NUMBER_9 NUMBER_4
-                &JP_ASTERISK               &kp SLASH               &JP_LBRACKET            &JP_RBRACKET                 &trans
-                &mt EXCLAMATION QUESTION   &mt LC(LA(LS(K))) LC(K) &trans                 &trans                        &trans
-                &mt RIGHT_SHIFT ENTER      &mt RIGHT_CONTROL SPACE &kp RIGHT_ALT          &trans                        &trans
+&mt LS(LC(N)) LS(O)  &mt LC(G) LS(I)  &mt LS(MINUS) MINUS  &mt LS(U) LS(Y)  &mt LC(LA(G)) LS(H)  &kp MINUS  &mkp MCLK  &kp UP  &trans  &trans
+&mt M LC(Z)  &mt H LC(Y)  &mt LC(T) LC(MINUS)  &mt LC(LS(T)) LC(SEMICOLON)  &mt SLASH LC(NUMBER_0)  &kp JP_PLUS  &kp LEFT  &kp DOWN  &kp RIGHT  &trans
+&mt NUMBER_5 NUMBER_0  &mt NUMBER_6 NUMBER_1  &mt NUMBER_7 NUMBER_2  &mt NUMBER_8 NUMBER_3  &mt NUMBER_9 NUMBER_4  &kp JP_ASTERISK  &kp SLASH  &kp JP_LBRACKET  &kp JP_RBRACKET  &trans
+&mt EXCLAMATION QUESTION  &mt LC(LA(LS(K))) LC(K)  &trans  &trans  &trans  &mt RIGHT_SHIFT ENTER  &mt RIGHT_CONTROL SPACE  &kp RIGHT_ALT  &trans  &trans
             >;
         };
 
         layer2 {
             bindings = <
-                JP_AT       JP_CARET       JP_COLON   JP_SEMICOLON
-                JP_SLASH    JP_BACKSLASH   JP_QUOTE   JP_DQUOTE
-                JP_PERCENT  JP_COMMA       JP_LESS_THAN JP_GREATER_THAN
-                JP_LBRACKET JP_RBRACKET    JP_UNDERSCORE JP_ASTERISK
-                JP_PLUS     JP_MINUS       JP_EQUAL   &mt INT_YEN DOLLAR
-                &kp BACKSPACE &trans       &kp LEFT_ALT &mt LEFT_CONTROL SPACE
-                &mt LEFT_SHIFT ENTER &trans &trans  &trans  &trans
-                JP_AMPERSAND
+&kp JP_AT  &kp JP_CARET  &kp SEMICOLON  &kp JP_COLON  &kp SLASH  &kp BACKSLASH  &kp JP_QUOTE  &kp JP_DQUOTE  &kp PERCENT  &kp COMMA
+&kp LESS_THAN  &kp GREATER_THAN  &kp JP_LBRACKET  &kp JP_RBRACKET  &kp JP_UNDERSCORE  &kp DOT  &kp JP_LPAREN  &kp JP_RPAREN  &kp JP_LBRACE  &kp JP_RBRACE
+&kp HASH  &kp EXCLAMATION  &kp QUESTION  &kp JP_TILDE  &kp JP_PIPE  &kp JP_ASTERISK  &kp JP_PLUS  &kp MINUS  &kp JP_EQUAL  &kp JP_YEN
+&kp BACKSPACE  &trans  &kp LEFT_ALT  &mt LEFT_CONTROL SPACE  &mt LEFT_SHIFT ENTER  &trans  &trans  &trans  &trans  &kp JP_AMPERSAND
             >;
         };
 
         layer3 {
             label = "FUNCTION";
             bindings = <
-                &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3            &bt BT_SEL 4          &kp F1   &kp F2   &kp F3  &kp F4  &kp F5
-                &trans        &trans        &trans        &trans                  &bt BT_CLR            &kp F6   &kp F7   &kp F8  &kp F9  &kp F10
-                &trans        &trans        &trans        &trans                  &bt BT_CLR_ALL        &kp F11  &kp F12  &trans  &trans  &trans
-                &trans        &trans        &kp LEFT_ALT  &mt LEFT_CONTROL SPACE  &mt LEFT_SHIFT ENTER  &trans   &trans   &trans  &trans  &trans
+&bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &kp F1  &kp F2  &kp F3  &kp F4  &kp F5
+&trans  &trans  &trans  &trans  &bt BT_CLR  &kp F6  &kp F7  &kp F8  &kp F9  &kp F10
+&trans  &trans  &trans  &trans  &bt BT_CLR_ALL  &kp F11  &kp F12  &trans  &trans  &trans
+&trans  &trans  &kp LEFT_ALT  &mt LEFT_CONTROL SPACE  &mt LEFT_SHIFT ENTER  &trans  &trans  &trans  &trans  &trans
             >;
         };
 
         layer4 {
             label = "MOUSE";
             bindings = <
-                &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-                &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-                &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-                &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
             >;
         };
     };
