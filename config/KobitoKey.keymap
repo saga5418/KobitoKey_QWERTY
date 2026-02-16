@@ -1,35 +1,35 @@
 // ===== JIS環境用 補正マクロ =====
 
 // 基本記号
-#define JP_DQUOTE       &kp LS(NUMBER_2)        // "
-#define JP_AMPERSAND    &kp LS(SEVEN)           // &
-#define JP_QUOTE        &kp SINGLE_QUOTE        // '
-#define JP_EQUAL        &kp EQUAL               // =
-#define JP_CARET        &kp EQUAL               // ^（JIS解釈）
-#define JP_YEN          &kp BACKSLASH           // ¥
+#define JP_DQUOTE       LS(NUMBER_2)
+#define JP_AMPERSAND    LS(SEVEN)
+#define JP_QUOTE        SINGLE_QUOTE
+#define JP_EQUAL        EQUAL
+#define JP_CARET        EQUAL
+#define JP_YEN          BACKSLASH
 
 // 上段記号
-#define JP_PLUS         &kp LS(SEMICOLON)       // +
-#define JP_TILDE        &kp LS(GRAVE)           // ~
-#define JP_PIPE         &kp LS(BACKSLASH)       // |
-#define JP_AT           &kp SINGLE_QUOTE        // @
-#define JP_COLON        &kp LS(SEMICOLON)       // :
-#define JP_ASTERISK     &kp LS(EIGHT)           // *
-#define JP_BACKQUOTE    &kp GRAVE               // `
-#define JP_UNDERSCORE   &kp LS(MINUS)           // _
+#define JP_PLUS         LS(SEMICOLON)
+#define JP_TILDE        LS(GRAVE)
+#define JP_PIPE         LS(BACKSLASH)
+#define JP_AT           SINGLE_QUOTE
+#define JP_COLON        LS(SEMICOLON)
+#define JP_ASTERISK     LS(EIGHT)
+#define JP_BACKQUOTE    GRAVE
+#define JP_UNDERSCORE   LS(MINUS)
 
 // 括弧系
-#define JP_LBRACKET     &kp LEFT_BRACKET        // [
-#define JP_RBRACKET     &kp RIGHT_BRACKET       // ]
-#define JP_LPAREN       &kp LS(NINE)            // (
-#define JP_RPAREN       &kp LS(ZERO)            // )
-#define JP_LBRACE       &kp LS(LEFT_BRACKET)    // {
-#define JP_RBRACE       &kp LS(RIGHT_BRACKET)   // }
+#define JP_LBRACKET     LEFT_BRACKET
+#define JP_RBRACKET     RIGHT_BRACKET
+#define JP_LPAREN       LS(NINE)
+#define JP_RPAREN       LS(ZERO)
+#define JP_LBRACE       LS(LEFT_BRACKET)
+#define JP_RBRACE       LS(RIGHT_BRACKET)
 
 // 日本語特有キー
-#define JP_KANA         &kp LANG1               // かな
-#define JP_EISU         &kp LANG2               // 英数
-#define JP_HANZEN       &kp GRAVE               // 半角/全角
+#define JP_KANA         LANG1
+#define JP_EISU         LANG2
+#define JP_HANZEN       GRAVE
 
 #include <input/processors.dtsi>
 #include <behaviors.dtsi>
@@ -96,13 +96,13 @@
 
         layer2 {
             bindings = <
-                JP_AT       JP_CARET       JP_SEMICOLON   JP_COLON
-                JP_SLASH    JP_BACKSLASH   JP_QUOTE       JP_DQUOTE
-                JP_PERCENT  JP_COMMA       JP_LESS_THAN   JP_GREATER_THAN
-                JP_LBRACKET JP_RBRACKET    JP_UNDERSCORE  JP_ASTERISK
-                JP_PLUS     JP_MINUS       JP_EQUAL       &mt INT_YEN DOLLAR
-                &kp BACKSPACE &trans       &kp LEFT_ALT   &mt LEFT_CONTROL SPACE
-                &mt LEFT_SHIFT ENTER &trans &trans      &trans         &trans
+                JP_AT       JP_CARET       JP_COLON   JP_SEMICOLON
+                JP_SLASH    JP_BACKSLASH   JP_QUOTE   JP_DQUOTE
+                JP_PERCENT  JP_COMMA       JP_LESS_THAN JP_GREATER_THAN
+                JP_LBRACKET JP_RBRACKET    JP_UNDERSCORE JP_ASTERISK
+                JP_PLUS     JP_MINUS       JP_EQUAL   &mt INT_YEN DOLLAR
+                &kp BACKSPACE &trans       &kp LEFT_ALT &mt LEFT_CONTROL SPACE
+                &mt LEFT_SHIFT ENTER &trans &trans  &trans  &trans
                 JP_AMPERSAND
             >;
         };
